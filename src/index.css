@@ -1,0 +1,66 @@
+@import "tailwindcss";
+@import "./theme-overrides.css";
+
+@theme {
+  /* Warm rustic light theme — cream, deep brown, olive & rusty orange */
+  --color-primary: #3a230a;
+  --color-primary-hover: #543310;
+  --color-navbar-bg: #3a230a;
+  --color-navbar-hover: #543310;
+  --color-secondary: #a55a3c;
+  --color-secondary-dark: #b96f4b;
+  --color-accent: #5d7b48;
+  --color-accent-hover: #6c8d56;
+  --color-bg: #f8f4ed;
+  --color-text: #1a1a1a;
+  --color-text-secondary: #333333;
+  --color-text-tertiary: #555555;
+  /* Hero (Home) heading and subtitle — change these to update hero text color */
+  --color-hero-title: #0d0d0d;
+  --color-hero-subtitle: #333333;
+  --color-on-primary: #fdfbf8;
+  --color-footer-bg: #3a230a;
+  --color-surface: #fdfbf8;
+  --color-surface-elevated: #f5f0e6;
+  --color-surface-overlay: rgba(248, 244, 237, 0.95);
+  --color-bg-muted: #ebe5d9;
+  --color-border: #d4c4a8;
+  --color-border-subtle: #e8e0d4;
+  --shadow-soft: 0 2px 12px -2px rgba(58, 35, 10, 0.08), 0 4px 20px -4px rgba(0, 0, 0, 0.06);
+  --shadow-card: 0 4px 24px -4px rgba(58, 35, 10, 0.1), 0 8px 32px -8px rgba(0, 0, 0, 0.08);
+  --shadow-card-hover: 0 12px 40px -8px rgba(58, 35, 10, 0.12), 0 16px 48px -12px rgba(0, 0, 0, 0.1);
+  --radius: 1rem;
+  --radius-button: 9999px;
+  --font-heading: "Outfit", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: "DM Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+@layer base {
+  html {
+    @apply antialiased;
+  }
+  body {
+    @apply min-h-screen;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+  }
+  #root:focus {
+    outline: none;
+  }
+  #root {
+    outline: none;
+  }
+}
+
+/* Smooth transitions — 0.3s ease */
+html,
+body {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}

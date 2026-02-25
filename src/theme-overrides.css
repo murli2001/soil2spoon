@@ -1,0 +1,223 @@
+/* ============================================
+   Theme overrides — loaded after Tailwind so these always win.
+   Light theme only. Header/Footer: gradient + texture.
+   ============================================ */
+
+/* ---- Body: light background + texture ---- */
+body {
+  background-color: #f8f4ed !important;
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      transparent 0,
+      transparent 2px,
+      rgba(58, 35, 10, 0.04) 2px,
+      rgba(58, 35, 10, 0.04) 3px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent 0,
+      transparent 2px,
+      rgba(58, 35, 10, 0.03) 2px,
+      rgba(58, 35, 10, 0.03) 3px
+    ) !important;
+}
+
+/* ---- Home page: section differentiation ---- */
+.s2s-promo {
+  border-left: 4px solid var(--color-primary) !important;
+  border-bottom: 1px solid var(--color-border-subtle) !important;
+}
+
+.s2s-hero {
+  border-bottom: 3px solid var(--color-border) !important;
+  box-shadow: 0 4px 20px -4px rgba(58, 35, 10, 0.08) !important;
+}
+
+/* Featured: warm textured beige */
+.s2s-featured.s2s-textured-section {
+  background-color: #f5f0e6 !important;
+  border-top: 1px solid var(--color-border-subtle) !important;
+  border-bottom: 1px solid var(--color-border-subtle) !important;
+}
+
+/* Categories: cream, no texture — clearly different block */
+.s2s-categories {
+  background-color: #faf6f0 !important;
+  border-top: 2px solid var(--color-border) !important;
+  border-bottom: 1px solid var(--color-border-subtle) !important;
+}
+
+/* Categories grid: 3 columns side by side (Spices | Pastes | Powders) */
+.s2s-categories-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 1rem;
+}
+@media (min-width: 640px) {
+  .s2s-categories-grid {
+    gap: 1.5rem;
+  }
+}
+
+/* Trending: slightly warmer than featured so they alternate */
+.s2s-trending.s2s-textured-section {
+  background-color: #ebe5d9 !important;
+  background-image:
+    repeating-linear-gradient(0deg, transparent 0, transparent 2px, rgba(58, 35, 10, 0.04) 2px, rgba(58, 35, 10, 0.04) 3px),
+    repeating-linear-gradient(90deg, transparent 0, transparent 2px, rgba(58, 35, 10, 0.03) 2px, rgba(58, 35, 10, 0.03) 3px) !important;
+  border-top: 2px solid var(--color-border) !important;
+}
+
+/* Section headings: accent line under title so each block is clearly named */
+.s2s-page-home .s2s-featured-header h2,
+.s2s-page-home .s2s-trending-header-text h2,
+.s2s-page-home .s2s-categories h2 {
+  display: inline-block;
+  padding-bottom: 0.5rem;
+  border-bottom: 3px solid var(--color-primary);
+}
+
+/* ---- Textured section base (used by Featured; Trending overrides above) ---- */
+.s2s-textured-section {
+  background-color: #f5f0e6 !important;
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      transparent 0,
+      transparent 2px,
+      rgba(58, 35, 10, 0.05) 2px,
+      rgba(58, 35, 10, 0.05) 3px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent 0,
+      transparent 2px,
+      rgba(58, 35, 10, 0.035) 2px,
+      rgba(58, 35, 10, 0.035) 3px
+    ) !important;
+}
+
+/* ---- Announcement bar: light background (kept light) ---- */
+.s2s-announcement-bar {
+  background-color: var(--color-surface) !important;
+  color: var(--color-text) !important;
+  border-bottom: 1px solid var(--color-border-subtle) !important;
+}
+
+/* ---- HEADER: base color, texture (overlay), heavy tint so texture barely visible, gradient on top ---- */
+.s2s-navbar {
+  background-color: #5c3d22 !important;
+  background-image:
+    linear-gradient(180deg, rgba(0, 0, 0, 0.32) 0%, rgba(0, 0, 0, 0.14) 40%, rgba(0, 0, 0, 0.05) 65%, transparent 100%),
+    linear-gradient(rgba(92, 61, 34, 0.88), rgba(92, 61, 34, 0.88)),
+    url("/images/texture/27_mud texture-seamless.jpg") !important;
+  background-size: 100% 100%, 100% 100%, auto !important;
+  background-repeat: no-repeat, no-repeat, repeat !important;
+  background-blend-mode: normal, normal, overlay !important;
+}
+
+/* ---- Navbar: buttons and links — light hover background (cream tint) + shadow on hover ---- */
+.s2s-navbar .s2s-nav-links a {
+  transition: box-shadow 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+}
+.s2s-navbar .s2s-nav-links a:hover {
+  background-color: rgba(253, 251, 248, 0.22) !important; /* --color-on-primary tint for visibility */
+  box-shadow: 0 2px 10px -2px rgba(0, 0, 0, 0.35), 0 4px 16px -4px rgba(0, 0, 0, 0.25);
+}
+.s2s-navbar .s2s-nav-actions a,
+.s2s-navbar .s2s-nav-search button {
+  transition: box-shadow 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+}
+.s2s-navbar .s2s-nav-actions a:hover,
+.s2s-navbar .s2s-nav-search button:hover {
+  background-color: rgba(253, 251, 248, 0.22) !important; /* --color-on-primary tint for visibility */
+  box-shadow: 0 2px 12px -2px rgba(0, 0, 0, 0.4), 0 4px 20px -4px rgba(0, 0, 0, 0.28);
+}
+
+/* ---- FOOTER: base color, texture (overlay), heavy tint so texture barely visible, gradient on top ---- */
+.s2s-footer {
+  background-color: #4a3528 !important;
+  background-image:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.12) 0%, transparent 25%, rgba(0, 0, 0, 0.4) 100%),
+    linear-gradient(rgba(74, 53, 40, 0.88), rgba(74, 53, 40, 0.88)),
+    url("/images/texture/27_mud texture-seamless.jpg") !important;
+  background-size: 100% 100%, 100% 100%, auto !important;
+  background-repeat: no-repeat, no-repeat, repeat !important;
+  background-blend-mode: normal, normal, overlay !important;
+}
+
+/* ---- Primary CTA: olive gradient (Shop now, etc.) ---- */
+.s2s-btn-primary {
+  background: linear-gradient(180deg, #6c8d56 0%, #5d7b48 50%, #4d6b3a 100%) !important;
+  color: white !important;
+  border: none !important;
+  border-radius: 9999px;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  box-shadow: 0 2px 12px -2px rgba(58, 35, 10, 0.15), 0 4px 20px -4px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease, filter 0.3s ease;
+}
+.s2s-btn-primary:hover {
+  box-shadow: 0 4px 24px -4px rgba(58, 35, 10, 0.2), 0 8px 32px -8px rgba(0, 0, 0, 0.12);
+  filter: brightness(1.08);
+}
+
+/* ---- Secondary CTA: rusty orange gradient (Add to cart, Subscribe) ---- */
+.s2s-btn-secondary {
+  background: linear-gradient(180deg, #b96f4b 0%, #a55a3c 50%, #8f4a2e 100%) !important;
+  color: white !important;
+  border: none !important;
+  border-radius: 9999px;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  box-shadow: 0 2px 12px -2px rgba(58, 35, 10, 0.15), 0 4px 20px -4px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease, filter 0.3s ease;
+}
+.s2s-btn-secondary:hover {
+  box-shadow: 0 4px 24px -4px rgba(58, 35, 10, 0.2), 0 8px 32px -8px rgba(0, 0, 0, 0.12);
+  filter: brightness(1.08);
+}
+
+/* ---- Hero text: dark shade so it’s readable on the light hero image (overrides theme/dark) ---- */
+.s2s-hero h1 {
+  color: #0d0d0d !important;
+}
+.s2s-hero h1 span {
+  color: #333333 !important;
+}
+.s2s-hero p.text-lg {
+  color: #333333 !important;
+}
+.s2s-hero .s2s-btn-primary,
+.s2s-hero .s2s-btn-outline {
+  position: relative;
+  z-index: 1;
+}
+
+/* ---- Outline button ---- */
+.s2s-btn-outline {
+  background: transparent !important;
+  color: var(--color-text);
+  border: 2px solid var(--color-border);
+  border-radius: 9999px;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  box-shadow: 0 1px 8px -2px rgba(58, 35, 10, 0.08), 0 2px 12px -4px rgba(0, 0, 0, 0.06);
+  transition: border-color 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+}
+.s2s-btn-outline:hover {
+  border-color: var(--color-primary);
+  background-color: rgba(58, 35, 10, 0.06) !important;
+  box-shadow: 0 2px 12px -2px rgba(58, 35, 10, 0.12), 0 4px 20px -4px rgba(0, 0, 0, 0.08);
+}
+
+/* ---- Solid primary button (e.g. Buy now) — same shadow as primary/secondary ---- */
+.s2s-btn-shadow {
+  box-shadow: 0 2px 12px -2px rgba(58, 35, 10, 0.15), 0 4px 20px -4px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+.s2s-btn-shadow:hover {
+  box-shadow: 0 4px 24px -4px rgba(58, 35, 10, 0.2), 0 8px 32px -8px rgba(0, 0, 0, 0.12);
+}
